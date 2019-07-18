@@ -89,7 +89,18 @@ $ph_no= $record['ph_no'];
 			<button class="btn" type="submit" name="update" >Update</button>
 			<?php endif ?>
 			
+			
 		</div>
+		<?php
+
+
+if($_SESSION['logedin']==1){
+echo '<a href="logout.php">logout</a>';
+}else{
+
+	header('location:login.php');
+}
+?>
 	</form>
 </body>
 

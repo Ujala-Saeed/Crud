@@ -17,10 +17,11 @@
 		$email=$_POST['email'];
 		$ph_no=$_POST['ph_no'];
 
-		echo mysqli_query($db, "INSERT into ph_dir(`f_name`,`l_name`,`email`,`ph_no`)VALUES('$f_name','$l_name','$email','$ph_no')");
+		mysqli_query($db, "INSERT into ph_dir(`f_name`,`l_name`,`email`,`ph_no`)VALUES('$f_name','$l_name','$email','$ph_no')");
 		$_SESSION['message'] = "Record Saved"; 
 		header('location: index.php');
 	}
+
 //update records
 if (isset($_POST['update'])) {
 
