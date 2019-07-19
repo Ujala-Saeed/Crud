@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
 <form action="login_process.php" method="post">
 <div class="input-group">
 	Email:<input  type="text" name="email">

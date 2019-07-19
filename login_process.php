@@ -1,30 +1,33 @@
 <?php
 include('code.php');
-session_start();
-$email=$_POST['email'];
-$pas=$_POST['password'];
-//
-$dbemail='ujalasaeed.46@gmail.com';
-$dbpass='12345';
-md5($dbpass);
-if($email === $dbemail && $pas === $dbpass){
 
+if(isset($_POST['login']))
+{
+		$email=$_POST['email'];
+		$pas=$_POST['password'];
+		md5($pas);
+
+//create table "admin" and insert "email" and "password" and then apply the below query
+
+	$query="SELECT * from admin WHERE email='$email' and password='$pas'";
+	$exe_query= mysqli_query($db,$query);
+	$found_num_rows= mysqli_num_rows($exe_query);
+	if($found_num_rows==1)
+	{
 	$_SESSION['logedin']=1;
 	$_SESSION['name']='ujala';
-	
+	echo'Welcome';
+	header('location:index.php');
 	}
-else{
-	echo "please reg";
-	session_destroy();
+
+	else{
+		echo "Please Register";
+		session_destroy();
+	}
 
 }
-
-if($_SESSION['logedin']==1){
-
-	header('location:index.php');
-}else{
+else{
 	header('location:login.php');
 }
-
 
 ?>
